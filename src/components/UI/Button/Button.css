@@ -16,9 +16,12 @@
 }
 
 .Success {
-  color: #5c9210;
+  color: white;
+  background-color: #5c9210;
+  border-radius: 10px;
 }
 
 .Danger {
   color: #944317;
+  text-decoration: underline;
 }
