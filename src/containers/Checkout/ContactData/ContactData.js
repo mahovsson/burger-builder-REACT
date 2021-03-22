@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Button from '../../../components/UI/Button/Button'
 import classes from '../ContactData/ContactData.css'
 import axios from '../../../axios-order'
@@ -103,7 +104,7 @@ class ContactDetails extends Component {
     } // make array from object for input elements
 
      const order = {
-      ingredients: this.props.ingredients,
+      ingredients: this.props.ings,
       price: this.props.price,
       orderData: formData
     } // order for axios to put post request
@@ -207,4 +208,11 @@ class ContactDetails extends Component {
   }
 }
 
-export default ContactDetails;
+const mapStateToProps = state => {
+  return {
+    ings: state.ingredients,
+    price: state.totalPrice
+  }
+}
+
+export default connect(mapStateToProps)(ContactDetails);
