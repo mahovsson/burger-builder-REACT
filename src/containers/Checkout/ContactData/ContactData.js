@@ -5,6 +5,8 @@ import classes from '../ContactData/ContactData.css'
 import axios from '../../../axios-order'
 import Spinner from '../../../components/UI/Spinner/Spinner'
 import Input from '../../../components/UI/Input/Input'
+import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler'
+import * as actions from '../../../store/actions/index'
 
 class ContactDetails extends Component {
   state = {
@@ -109,14 +111,7 @@ class ContactDetails extends Component {
       orderData: formData
     } // order for axios to put post request
 
-    axios.post('/orders.json', order)
-      .then(response => {
-        this.setState({loading:false});
-        this.props.history.push('/');
-      })
-      .catch(error => {
-        this.setState({loading:false});
-      });
+    this.props.onOrderBurger(order)
    }
 
    checkValidity(value, rules) {
@@ -215,4 +210,8 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(ContactDetails);
+const mapDispatchToProps = dispatch => {
+  onOrderBurger: (orderData) => dispatch(actions.purchaseBurgerStart(orderData))
+}
+
+export default connect(mapStateToProps)(withErrorHandler(ContactDetails, axios));
