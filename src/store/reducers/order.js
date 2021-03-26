@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../utility';
 
 const initialState = {
-  order: [],
+  orders: [],
   loading: false,
   purchased: false
 }
@@ -19,7 +19,7 @@ const purchaseBurgerSuccess = (state, action) => {
   const newOrder = updateObject(action.orderData, {id: action.orderId});
   return updateObject(state, {
       loading: false,
-      orders:state.order.concat(newOrder),
+      orders:state.orders.concat(newOrder),
       purchased: true});
 };
 
