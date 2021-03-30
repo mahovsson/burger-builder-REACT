@@ -107,7 +107,8 @@ class ContactDetails extends Component {
      const order = {
       ingredients: this.props.ings,
       price: this.props.price,
-      orderData: formData
+      orderData: formData,
+      userId: this.props.userId
     } // order for axios to put post request
 
     this.props.onOrderBurger(order, this.props.token)
@@ -207,7 +208,8 @@ const mapStateToProps = state => {
     ings: state.burgerBuilder.ingredients,
     price: state.burgerBuilder.totalPrice,
     loading: state.order.loading,
-    token: state.auth.token
+    token: state.auth.token,
+    userId: state.auth.userId
   }
 }
 
