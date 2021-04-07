@@ -12,12 +12,12 @@ const checkout = props => {
 
   const checkoutContinueHandler = () => {
     props.history.replace('/checkout/contact-data');
-  }
+  };
 
 
     let summary = <Redirect to="/" />
       if (props.ings) {
-      const purchasedRedirect = props.purchased ? <Redirect to="/" /> : null
+      const purchasedRedirect = props.purchased ? <Redirect to="/" /> : null;
 
         summary = (
           <div>

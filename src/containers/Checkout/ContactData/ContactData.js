@@ -186,7 +186,7 @@ const contactData = props => {
               touched={formElement.config.touched}
               changed={(event) => inputChangedHandler(event, formElement.id)} />
         ))}
-        <Button btnType="Success" disabled={setFormIsValid(!formIsValid)}>ORDER</Button>
+        <Button btnType="Success" disabled={!formIsValid}>ORDER</Button>
       </form>
     );
 
