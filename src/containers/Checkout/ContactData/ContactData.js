@@ -8,7 +8,7 @@ import Input from '../../../components/UI/Input/Input'
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler'
 import * as actions from '../../../store/actions/index'
 
-const contactDetails = props => {
+const contactData = props => {
 
   const [orderForm, setOrderForm] = useState({
       name: {
@@ -96,8 +96,8 @@ const contactDetails = props => {
     const [formIsValid, setFormIsValid] = useState(false);
 
 
-   const orderHandler = (e) => {
-     e.preventDefault(); // prevent default action
+   const orderHandler = event => {
+     event.preventDefault(); // prevent default action
 
     const formData = {};
     for (let formElementIdentifier in orderForm) {
@@ -218,4 +218,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(withErrorHandler(contactDetails, axios));
+export default connect(mapStateToProps,mapDispatchToProps)(withErrorHandler(contactData, axios));
