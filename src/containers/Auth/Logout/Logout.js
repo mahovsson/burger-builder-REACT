@@ -4,8 +4,10 @@ import * as actions from '../../../store/actions/index';
 import { Redirect } from 'react-router-dom';
 
 const logout = props => {
+
+  const { onLogout } = props;
   useEffect(() => {
-    props.onLogout();
+    onLogout();
   },[])
 
 
